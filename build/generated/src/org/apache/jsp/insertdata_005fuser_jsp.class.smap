@@ -1,0 +1,18 @@
+SMAP
+insertdata_005fuser_jsp.java
+JSP
+*S JSP
+*F
++ 0 insertdata_user.jsp
+insertdata_user.jsp
++ 1 connectionDB.jsp
+connectionDB.jsp
+*L
+1,15:51
+1#1,11:66
+12,8:78
+19,4:86
+15#0,3:90
+18,23:94
+40,53:117
+*E
