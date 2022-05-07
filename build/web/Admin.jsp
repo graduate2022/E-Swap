@@ -1,10 +1,16 @@
-<%--
-<button> <a href="connectionDB.jsp"> Go to connection DB Page </a></button>  <br>
---%>
 <%@page import = "java.sql.*" %>
 <%@page import = "javax.swing.*" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+
+Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
+
+if(loggedIn==null || !loggedIn){
+   request.getRequestDispatcher("/no-access.jsp").forward(request, response);
+}
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,6 +33,7 @@ body{
             <center>
                 
         <h1>Admin Page</h1> 
+        
         <%
 //        Connection conn= null;
 //        try{
@@ -37,6 +44,8 @@ body{
 //        JOptionPane.showMessageDialog(null,"NOT Connection to DB");
 //        } %>
         
+
+
         <br><br>
         
         <button><a href="insertData.jsp">  Go to Insert Data Page </a></button> <br><br>
@@ -48,11 +57,9 @@ body{
         <button><a href="insertproduct.jsp">  Go to Insert Order Page </a></button><br><br>
         
         
-        <button><a href="login.jsp"> Logout </a></button>       
+        <button><a href="logoutAction.jsp"> Logout </a></button>       
         </center>
                     
-        
-
-
+    
 </body>
 </html>

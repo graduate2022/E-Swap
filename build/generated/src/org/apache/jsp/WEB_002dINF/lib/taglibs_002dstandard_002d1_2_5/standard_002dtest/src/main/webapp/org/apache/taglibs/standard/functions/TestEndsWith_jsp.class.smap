@@ -1,0 +1,12 @@
+SMAP
+TestEndsWith_jsp.java
+JSP
+*S JSP
+*F
++ 0 TestEndsWith.jsp
+WEB-INF/lib/taglibs-standard-1.2.5/standard-test/src/main/webapp/org/apache/taglibs/standard/functions/TestEndsWith.jsp
+*L
+16,5:60
+20:86,7
+20,2:66
+*E

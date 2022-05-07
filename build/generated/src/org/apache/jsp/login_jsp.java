@@ -3,8 +3,6 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.sql.*;
-import javax.swing.*;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -43,9 +41,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("<head>\n");
@@ -65,12 +60,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\n");
       out.write("\n");
       out.write("\n");
-      out.write("<body>\n");
+      out.write("\n");
       out.write("<center>\n");
       out.write("   \n");
       out.write(" <br><br><br><br><br>\n");
       out.write(" \n");
-      out.write("        <form  action=\"Admin.jsp\" >\n");
+      out.write("        <form  action=\"loginAction.jsp\" method = \"POST\" >\n");
       out.write("    \n");
       out.write("            <table border=\"3\" cellpadding=\"4\" cellspacing=\"2\">\n");
       out.write("                <thead>\n");
@@ -81,15 +76,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <tbody>\n");
       out.write("                    <tr>\n");
       out.write("                        <td>Username</td>\n");
-      out.write("                        <td><input type= \"text\" required=\"\"  placeholder = \"Enter Your User Name\"  id=\"usernsme\"></td>\n");
+      out.write("                        <td><input type= \"text\" required=\"\"  placeholder = \"Enter Your User Name\"  id=\"username\" name=\"username\"></td>\n");
       out.write("                    </tr>\n");
       out.write("                    <tr>\n");
       out.write("                        <td>Password</td>\n");
-      out.write("                        <td><input type= \"password\" required=\"\"  placeholder = \"Enter Your Password\" id=\"passwd\"></td>\n");
+      out.write("                        <td><input type= \"password\" required=\"\"  placeholder = \"Enter Your Password\" id=\"passwd\" name=\"passwd\"></td>\n");
       out.write("                    </tr>\n");
       out.write("                    <tr>\n");
       out.write("                        <td colspan=\"2\" align=\"center\">\n");
-      out.write("                            <input type=\"submit\" value=\"Login\" formaction=\"Admin.jsp\" />\n");
+      out.write("                            <input type=\"submit\" value=\"Login\" />\n");
       out.write("                            &nbsp;&nbsp;\n");
       out.write("                            <input type=\"reset\" value=\"Reset\" />\n");
       out.write("                           \n");
@@ -105,36 +100,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("   \n");
       out.write("</center>\n");
       out.write("\n");
-      out.write("     ");
-
-    try{
-        String username = request.getParameter("username");   
-        String passwd = request.getParameter("passwd");
-        Class.forName("org.apache.derby.jdbc.ClientDriver");  // PostgreSQL JDBC Driver to database connection
-        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Employee","alaa","000");    
-        PreparedStatement pst = conn.prepareStatement("Select username,passwd from info where username=? and passwd=?");
-        pst.setString(1, username);
-        pst.setString(2, passwd);
-        ResultSet rs = pst.executeQuery();                        
-        
-        if(rs.next())           
-           out.println("Valid login credentials");        
-        else
-          JOptionPane.showMessageDialog(null," Invalid login credentials");
-
-   }
-   catch (Exception e){
-        out.println("kiooo");
-                out.println("Error" + e);
-
-        }
-     
-      out.write("\n");
-      out.write("      \n");
-      out.write("    \n");
-      out.write("   \n");
-      out.write("\n");
-      out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

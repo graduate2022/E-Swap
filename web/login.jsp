@@ -1,5 +1,12 @@
-<%@page import = "java.sql.*" %>
-<%@page import = "javax.swing.*" %>
+<%
+
+
+Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
+
+if(loggedIn!=null && loggedIn){
+   response.sendRedirect(request.getContextPath() + "/Admin.jsp");
+}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -20,7 +27,7 @@ body {
 </head>
 
 
-<body>
+
 <center>
    
  <br><br><br><br><br>
@@ -36,7 +43,7 @@ body {
                 <tbody>
                     <tr>
                         <td>Username</td>
-                        <td><input type= "text" required=""  placeholder = "Enter Your User Name"  id="usernsme" name="usernsme"></td>
+                        <td><input type= "text" required=""  placeholder = "Enter Your User Name"  id="username" name="username"></td>
                     </tr>
                     <tr>
                         <td>Password</td>
@@ -44,7 +51,7 @@ body {
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <input type="submit" value="Login" formaction="Admin.jsp" />
+                            <input type="submit" value="Login" />
                             &nbsp;&nbsp;
                             <input type="reset" value="Reset" />
                            
@@ -60,32 +67,4 @@ body {
    
 </center>
 
-     <%
-    try{
-        String username = request.getParameter("username");   
-        String passwd = request.getParameter("passwd");
-        Class.forName("org.apache.derby.jdbc.ClientDriver");  // PostgreSQL JDBC Driver to database connection
-        Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/Employee","alaa","000");    
-        PreparedStatement pst = conn.prepareStatement("Select username,passwd from info where username=? and passwd=?");
-        pst.setString(1, username);
-        pst.setString(2, passwd);
-        ResultSet rs = pst.executeQuery();                        
-        
-        if(rs.next())           
-           out.println("Valid login credentials");        
-        else
-          JOptionPane.showMessageDialog(null," Invalid login credentials");
-
-   }
-   catch (Exception e){
-        out.println("kiooo");
-                out.println("Error" + e);
-
-        }
-     %>
-      
-    
-   
-
-</body>
 </html>

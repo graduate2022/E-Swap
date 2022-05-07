@@ -19,8 +19,7 @@ public static boolean validateLogin(String usernsme, String pass){
 boolean status=false;  
 try{  
 
-PreparedStatement ps=DBUtil.getConnecttion().prepareStatement(  
-    "select * from user432 where email=? and pass=?");  
+PreparedStatement ps=DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.USERS where username=? and password=?");  
   
 ps.setString(1,usernsme);  
 ps.setString(2, pass);  
@@ -28,10 +27,16 @@ ps.setString(2, pass);
 ResultSet rs=ps.executeQuery();  
 status=rs.next();  
               
-}catch(Exception e){}  
+}catch(Exception e){
+
+    System.out.println(e);
+}  
   
 return status;  
   
 
 }
+
+
+
 }

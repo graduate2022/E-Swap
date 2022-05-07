@@ -1,0 +1,28 @@
+SMAP
+TestDateTag_jsp.java
+JSP
+*S JSP
+*F
++ 0 TestDateTag.jsp
+WEB-INF/lib/taglibs-standard-1.2.5/standard-test/src/main/webapp/org/apache/taglibs/standard/tag/el/fmt/TestDateTag.jsp
+*L
+16,7:66
+22:72,9
+23:81
+24:127,8
+24:84
+25:148,5
+25,2:87
+27:166,9
+27:91
+28:188,5
+28,2:94
+30:206,8
+30:98
+31:227,5
+31,2:101
+33:245,9
+33:105
+34:267,5
+34:108
+*E

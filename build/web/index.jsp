@@ -1,3 +1,14 @@
+
+<%
+    String buttonName = "Login";
+Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
+
+if(loggedIn!=null && loggedIn){
+   buttonName = "Admin page";
+}
+
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +23,7 @@
 
 <section>
 <div class="div1"> <b> E-SWAP</b> 
-<button><a href="login.jsp"> Login </a></button> 
+<button><a href="login.jsp"> <%=buttonName%> </a></button> 
 
 </div>
 

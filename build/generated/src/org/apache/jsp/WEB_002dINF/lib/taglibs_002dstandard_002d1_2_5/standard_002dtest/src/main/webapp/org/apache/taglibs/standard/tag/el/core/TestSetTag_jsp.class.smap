@@ -1,0 +1,14 @@
+SMAP
+TestSetTag_jsp.java
+JSP
+*S JSP
+*F
++ 0 TestSetTag.jsp
+WEB-INF/lib/taglibs-standard-1.2.5/standard-test/src/main/webapp/org/apache/taglibs/standard/tag/el/core/TestSetTag.jsp
+*L
+16,4:57
+19:84,7
+19:62
+20:104,5
+20:65
+*E

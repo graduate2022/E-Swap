@@ -15,11 +15,12 @@ private static Connection connection = null;
 
 private  static final String DB_PATH = "jdbc:derby://localhost:1527/Employee";
 private  static final String DB_USER_NAME = "alaa";
-private  static final String DB_PASS = "alaa";
+private  static final String DB_PASS = "000";
 
     public static Connection getConnecttion() {
         if (connection == null) {
             try {
+                Class.forName("org.apache.derby.jdbc.ClientDriver"); 
                 connection = DriverManager.getConnection(DB_PATH, DB_USER_NAME, DB_PASS);
             } catch (Exception e) {
 
