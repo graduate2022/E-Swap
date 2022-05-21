@@ -78,13 +78,13 @@
       </form>
       <br><br>
       
-       <a href="login.jsp"> Back Login Page </a>
+       <a href="login.jsp"> Logout </a>
        </center>
        
     <style>
 
     body{
-    background-color: gray ;
+    background-color: burlywood ;
     
     }
        </style>

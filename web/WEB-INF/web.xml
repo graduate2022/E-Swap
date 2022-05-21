@@ -1,0 +1,54 @@
+<web-app>  
+    <multipart-config>
+        <location>/org</location>
+        <max-request-size>418018841</max-request-size>
+        <max-file-size>20848820</max-file-size>
+        <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
+  
+    <servlet>  
+        <servlet-name>AddProductAction</servlet-name>  
+        <servlet-class>product.AddProductAction</servlet-class>  
+        <multipart-config>
+            <location>/org</location>
+            <max-request-size>418018841</max-request-size>
+            <max-file-size>20848820</max-file-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>  
+
+    <servlet>
+    
+        <servlet-name>DeleteProductAction</servlet-name>
+        <servlet-class>product.DeleteProductAction</servlet-class>  
+
+    </servlet>
+    
+     <servlet>
+    
+        <servlet-name>UpdateProductAction</servlet-name>
+        <servlet-class>product.UpdateProductAction</servlet-class>  
+ <multipart-config>
+            <location>/org</location>
+            <max-request-size>418018841</max-request-size>
+            <max-file-size>20848820</max-file-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    
+    <servlet-mapping>  
+        <servlet-name>DeleteProductAction</servlet-name>  
+        <url-pattern>/deleteProductAction</url-pattern>  
+    </servlet-mapping>
+  
+  <servlet-mapping>  
+        <servlet-name>UpdateProductAction</servlet-name>  
+        <url-pattern>/updateProductAction</url-pattern>  
+    </servlet-mapping>
+  
+    <servlet-mapping>  
+        <servlet-name>AddProductAction</servlet-name>  
+        <url-pattern>/addProduct</url-pattern>  
+    </servlet-mapping>  
+ 
+</web-app>  

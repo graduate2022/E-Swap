@@ -55,15 +55,15 @@
         %>
        
      <br><br>
-      <a href="displayData.jsp"> Go to Display Data Page </a>
+      <a href="displayData.jsp"> Display Data </a>
     <br><br><br>
-    <a href="Admin.jsp"> Go to Admin Page </a>
+        <a href="Admin.jsp"> Back </a>
     </center>
     
     <style>
 
     body{
-    background-color: lightpink ;
+    background-color: burlywood ;
     
     }
        </style>

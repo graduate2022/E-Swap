@@ -11,14 +11,14 @@
     <body>
          
     <center>
-        <h1> Display Data Page </h1>
+        <h1> Display Feeds Page </h1>
         <h4> <%@include file="connectionDB.jsp"%> </h4>
-        <h3>  Users Table </h3>
+        <h3>  Display Feeds Table </h3>
         <%
         PreparedStatement pst= null;
         ResultSet emps=null;
         String q;
-        q= "select * from info";
+        q= "select * from feedbacks";
       try{
           pst=conn.prepareStatement(q);
       emps = pst.executeQuery();     
@@ -32,14 +32,9 @@
             <thead>
                 <tr>
                  
-                    <th >ID</th>
-                    <th>FNAME</th>
-                    <th>LNAME</th>
-                    <th>USERNAME</th>
-                    <th>PASSWD</th>
-                    <th>ADDRESS</th>
-                    <th>PHONENUMBER</th>
-                    
+                    <th> EMAIL </th>
+                    <th> PHONE </th>
+                    <th> FEEDBACK </th>                       
                 </tr>
             </thead>
             <tbody>
@@ -50,20 +45,14 @@
                     <td> <%=emps.getString(1)%></td>
                     <td><%=emps.getString(2)%></td>
                     <td><%=emps.getString(3)%></td>
-                    <td><%=emps.getString(4)%></td>
-                    <td><%=emps.getString(5)%></td>
-                    <td><%=emps.getString(6)%></td>  
-                    <td><%=emps.getString(7)%></td>
-                    
+                        
                 </tr>  
             
                 <% }%>
-                
-                              
+                                              
             </tbody>
         </table>               
-                
-                
+                       
         <br><br><br> 
         <a href="Admin.jsp"> Back </a>
        </center>
@@ -73,8 +62,7 @@
             body{
     background-color: burlywood ;
     
-    }
-                
+    }      
         </style>
         
         

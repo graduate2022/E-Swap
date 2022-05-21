@@ -31,8 +31,8 @@ if(loggedIn!=null && loggedIn){
 <%
     boolean valid = false;
     boolean empty = false;
+    String username = request.getParameter("username");   
     try{
-        String username = request.getParameter("username");   
         String passwd = request.getParameter("passwd");
     
         empty = username == null;
@@ -46,6 +46,8 @@ if(loggedIn!=null && loggedIn){
 if(valid){
 
                 session.setAttribute("loggedin",true);
+                
+                session.setAttribute("username",username);
                 
                 response.sendRedirect(request.getContextPath() + "/Admin.jsp");
 

@@ -20,7 +20,7 @@ if(loggedIn!=null && loggedIn){
  <style>
        
 body {
-    background-color: lightpink ;
+    background-color: coral ;
 	}
     </style>
     
@@ -30,28 +30,28 @@ body {
 
 <center>
    
- <br><br><br><br><br>
+ <br><br><br>
  
         <form  action="loginAction.jsp" method = "POST" >
     
-            <table border="3" cellpadding="4" cellspacing="2">
+            <table border="3" cellpadding="4" cellspacing="2" style="width:35% " >
                 <thead>
-                    <tr>
+                    <tr style="height:60px">
                     <th colspan="2">Login Here</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr style="height:60px">
                         <td>Username</td>
                         <td><input type= "text" required=""  placeholder = "Enter Your User Name"  id="username" name="username"></td>
                     </tr>
-                    <tr>
+                    <tr style="height:60px">
                         <td>Password</td>
                         <td><input type= "password" required=""  placeholder = "Enter Your Password" id="passwd" name="passwd"></td>
                     </tr>
-                    <tr>
+                    <tr style="height:60px">
                         <td colspan="2" align="center">
-                            <input type="submit" value="Login" />
+                            <input type="submit" value="Log in" />
                             &nbsp;&nbsp;
                             <input type="reset" value="Reset" />
                            
@@ -63,8 +63,9 @@ body {
         </form>
              
        <br><br>
-   <a href="insertdata_user.jsp" > Create a new account </a>
-   
-</center>
+       <button> <a href="index.jsp" > Back to Home </a></button>
+       &nbsp;&nbsp;
+       <button> <a href="insertdata_user.jsp" > Create a new Account </a></button>
+   </center>
 
 </html>

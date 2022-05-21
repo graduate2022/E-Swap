@@ -4,7 +4,7 @@
     Author     : Alaa
 --%>
 <%
-    session.removeAttribute("loggedin");
+session.removeAttribute("loggedin");
 session.invalidate();
 request.getRequestDispatcher("/").forward(request, response);
 %>

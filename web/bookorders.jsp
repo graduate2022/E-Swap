@@ -1,90 +1,115 @@
+<%@page import="product.Product"%>
+<%
+
+    Product product = Product.getProductById(Integer.parseInt(request.getParameter("id")));
+
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="graduate.css">        
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"  href="graduate.css">      
+        <style>
+            .details{
+    font-size: 40px;
+    margin: 10px;
+}
+
+td{
+      border: 7px solid antiquewhite;
+
+}
+table{
+    text-align: center;
+    background-color:cadetblue; 
+}
+        </style>
         <title>Insert Page</title>
     </head>
     <body>
-        <center>
-        <h1> Insert Order Page </h1>
-     <h3> <%@include file="connectionDB.jsp"%> </h3>
-       <br>
-      
-       <%
-        PreparedStatement pst= null;
-        ResultSet emps=null;
-        String q;
-        q= "insert into ORDERS values (?,?,?,?,?,?)";
-        
-      try{
-      pst=conn.prepareStatement(q);
-      pst.setString(1, request.getParameter("CUSTUMERID"));
-      pst.setString(2, request.getParameter("CUSTUMERNAME"));
-      pst.setString(3, request.getParameter("PRODUCTID"));
-      pst.setString(4, request.getParameter("PRODUCTNAME"));
-      pst.setString(5, request.getParameter("PHONENUMBER"));
-      pst.setString(6, request.getParameter("ADDRESS"));
-      pst.executeUpdate();
-     
-      JOptionPane.showMessageDialog(null, "Insert Successful" );
-      
-      }catch(Exception e){
-         out.println("Error in retrieving data" + e );
-      } 
-       %>
-      
-      <FORM name="orders table" action="bookorders.jsp">
-      <table border= "3">
-          <tbody>
-              <tr>
-                  <td>CUSTUMERID</td>
-                  <td> <input type="text" name="CUSTUMERID" value="" size="40" /> </td>
-              </tr>
-              <tr>
-                  <td>CUSTUMERNAME</td>
-                  <td><input type="text" name="CUSTUMERNAME" value="" size="40" /></td>
-              </tr>
-              <tr>
-                  <td>PRODUCTID</td>
-                  <td><input type="text" name="PRODUCTID" value="" size="40" /></td>
-              </tr>
-              <tr>
-                  <td>PRODUCTNAME</td>
-                  <td><input type="text" name="PRODUCTNAME" value="" size="40" /></td>
-              </tr>
-               
-              <tr>
-                  <td>PHONENUMBER</td>
-                  <td><input type="text" name="PHONENUMBER" value="" size="40" /></td>
-              </tr>
-              <tr>
-                  <td>ADDRESS</td>
-                  <td><input type="text" name="ADDRESS" value="" size="40" /></td>
-              </tr>
-          </tbody>
-      </table>
-          
-          <input type="submit"  value="submit" name ="submit" />
-          <input type="reset"  value="clear" name="reset" />
-      </form>
+    <center>
+        <h1> Book Order Page </h1>
+
+        <br><!-- comment -->
+                <br><!-- comment -->
+
+                    <div class="details">
+
+                        <table>
+                             <tr>
+                                <td>
+            <img height="400" width="400" src="/Graduate/assets/images/<%=product.imgName%>"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Product Name : <%=product.name%></span> 
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    <span>Price : <%=product.price%> JD</span> 
+                                </td>
+                             </tr>
+                              <tr>
+                                <td>
+                                    <span>Payment Method : cash on delivery</span> 
+                                </td>
+                            </tr>
+                        </table>
+        </div>
+        <form name="orders table" action="#" method="post">
+            <table border= "3">
+                <tbody>
+                    <tr>
+                        <td>Customer Name</td>
+                        <td> <input type="text" name="CUSTUMERID" value="" size="40" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input required type="email" name="CUSTUMERNAME" value="" size="40" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input required minlength="3"  type="text" name="PRODUCTID" value="" size="40" /></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Number</td>
+                        <td><input style="width: 100%;" minlength="10" required type="number" name="PRODUCTNAME" value="" size="40" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Amount</td>
+                        <td><input style="width: 100%;"required min="1" type="number" name="PHONENUMBER" value="" size="40" step="1" /></td>
+                    </tr>
+                </tbody>
+            </table>
+                    <br>
+        <br>
+
+ <input type="submit" value="Submit" />
+            &nbsp;&nbsp;
+            <input type="reset" value="Reset" />
+        </form>
+        <br>
        
-    <br><br>
-       <a href="login.jsp"> BACK </a>
-       </center>
-       
+        <br>
+        <button><a href="index.jsp"> Back To Home </a></button>
+    </center>
+
     <style>
 
-    body{
-    background-color: gray ;
-    
-    }
-       </style>
-       
+        body{
+            background-color: burlywood ;
+
+        }
+    </style>
+
 
 </body>
 </html>
