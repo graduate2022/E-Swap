@@ -11,7 +11,7 @@
     </head>
     <body>
         <center>
-        <h1> Insert Data Page </h1>
+        <h1> Insert User Page </h1>
      <h3> <%@include file="connectionDB.jsp"%> </h3>
        <br>
       

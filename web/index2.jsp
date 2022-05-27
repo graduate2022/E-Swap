@@ -75,7 +75,6 @@ img{
 <section>
 <nav class="w3-bar w3-black">
 <a href="login.jsp" class="w3-button w3-bar-item"> <%=buttonName%> </a>  
-<a href="bookorders.jsp" class="w3-button w3-bar-item" > Book Buying Order </a>
 <a href="" class="w3-button w3-bar-item"> Swapping Order </a>
 <a href="Feedback.jsp" class="w3-button w3-bar-item"> Feedback</a> 
 
@@ -85,7 +84,7 @@ img{
 <img src="/Graduate/assets/images/logo.jpg" alt="">
 </div>
 <marquee BGCOLOR="Red" SCROLLAMOUNT="130" SCROLLDELAY="600" >
-<label0> Free Delivery (Free project by Esraa Barham) </label0>
+<label0> Free Delivery </label0>
 </marquee>
     
 <marquee BGCOLOR="yellow" SCROLLAMOUNT="110" SCROLLDELAY="600" >
@@ -107,8 +106,8 @@ img{
       </div>
     
     <div>
-        <button><a href="bookorders.jsp?id=<%=product.id%>"> cach</a></button>        
-        <button> swap</button>
+        <button><a href="bookorders.jsp?id=<%=product.id%>"> cach </a></button>        
+        <button> Swap </button>
     </div>
       </center>
   </div>

@@ -11,7 +11,7 @@
     <body>
          
     <center>
-        <h1> Display Data Page </h1>
+        <h1> Display Users Page </h1>
         <h4> <%@include file="connectionDB.jsp"%> </h4>
         <h3>  Users Table </h3>
         <%

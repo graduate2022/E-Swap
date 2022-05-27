@@ -30,10 +30,10 @@
       JOptionPane.showMessageDialog(null, "Thank You" );
       
       }catch(Exception e){
-         out.println("please re your feedback" + e );
-      } 
-       %>  
-       
+         out.println("Please re your feedback and add all information");
+      }     
+%>  
+      
        <FORM name="FEEDBACKS table" action="Feedback.jsp">
       <table border= "3">
           <tbody>

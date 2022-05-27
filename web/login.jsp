@@ -17,22 +17,27 @@ if(loggedIn!=null && loggedIn){
     <title> Login page </title>
 
     <link rel="stylesheet"  href="graduate.css">
- <style>
-       
-body {
-    background-color: coral ;
-	}
-    </style>
-    
+
+<style>
+ .div1 {
+margin-top: 50px;
+height: 500px;
+width: 500px;
+background-color: wheat;
+border-style: solid;
+border-radius: 30px;
+}
+ form {
+position: inherit;
+margin-top: 70px;
+}
+</style>
 </head>
-
-
-
-<center>
-   
- <br><br><br>
- 
-        <form  action="loginAction.jsp" method = "POST" >
+<body>
+    <center>
+        
+        <div class="div1"> 
+            <form class="a" action="loginAction.jsp" method = "POST" >
     
             <table border="3" cellpadding="4" cellspacing="2" style="width:35% " >
                 <thead>
@@ -66,6 +71,8 @@ body {
        <button> <a href="index.jsp" > Back to Home </a></button>
        &nbsp;&nbsp;
        <button> <a href="insertdata_user.jsp" > Create a new Account </a></button>
-   </center>
-
+    </div>
+    </center>
+    
+    </body>
 </html>

@@ -39,7 +39,7 @@ if(loggedIn==null || !loggedIn){
               </tr>
               <tr>
                   <td>Price</td>
-                  <td><input required type="number" min="1" name="Price" value="" size="40" step="0.01" /></td>
+                  <td><input required type="number" min="0.50" name="Price" value="" size="40" step="0.01" /></td>
               </tr>      
                <tr>
                   <td>Image</td>

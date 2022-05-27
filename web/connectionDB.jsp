@@ -13,7 +13,6 @@
         try{
         Class.forName("org.apache.derby.jdbc.ClientDriver");
         conn=DriverManager.getConnection("jdbc:derby://localhost:1527/Employee","alaa","000");
-        out.println(" connection sucssful");
         }catch (Exception e){
         out.println("error connection " + e);
         } %>
