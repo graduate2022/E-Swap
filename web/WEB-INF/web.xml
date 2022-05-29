@@ -17,6 +17,60 @@
         </multipart-config>
     </servlet>  
 
+    <servlet>  
+        <servlet-name>AddOrder</servlet-name>  
+        <servlet-class>order.AddOrder</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>AddOrder</servlet-name>  
+        <url-pattern>/addOrder</url-pattern>  
+    </servlet-mapping>
+    
+    
+     <servlet>  
+        <servlet-name>GetProductDetails</servlet-name>  
+        <servlet-class>product.GetProductDetails</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>GetProductDetails</servlet-name>  
+        <url-pattern>/getProductDetails</url-pattern>  
+    </servlet-mapping>
+        
+    AddUser
+    
+    <servlet>  
+        <servlet-name>AddUser</servlet-name>  
+        <servlet-class>user.AddUser</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>AddUser</servlet-name>  
+        <url-pattern>/addUser</url-pattern>  
+    </servlet-mapping>
+    
+    
+      <servlet>  
+        <servlet-name>CheckUsername</servlet-name>  
+        <servlet-class>user.CheckUsername</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>CheckUsername</servlet-name>  
+        <url-pattern>/checkUsername</url-pattern>  
+    </servlet-mapping>
+    
+    <servlet>        
+        <servlet-name>DeleteOrder</servlet-name>  
+        <servlet-class>order.DeleteOrder</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>DeleteOrder</servlet-name>  
+        <url-pattern>/deleteOrder</url-pattern>  
+    </servlet-mapping>
+    
     <servlet>
     
         <servlet-name>DeleteProductAction</servlet-name>

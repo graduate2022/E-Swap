@@ -148,4 +148,26 @@ public class Product {
         return product;
     }
 
+  public static Product getProductByIdForCurrentUser(int id, String userName) {
+
+        Product product = null;
+        PreparedStatement ps;
+        try {
+            ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.PRODUCTS where id=? and username=?");
+            ps.setInt(1, id);
+            ps.setString(2, userName);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            product = new Product(rs.getString("name"), rs.getString("username"), rs.getString("imgname"), rs.getInt("id"), rs.getDouble("price"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return product;
+    }
+
+public static String getUsernameForProduct(int pid){
+Product product = getProductById(pid);
+return product.userName;
+}
 }

@@ -105,8 +105,8 @@ img{
       </div>
     
     <div>
-        <button><a href="bookorders.jsp?id=<%=product.id%>"> cach </a></button>        
-        <button> Swap </button>
+        <button><a href="bookorders.jsp?id=<%=product.id%>"> cash </a></button>        
+        <button> <a href="swapOrder.jsp?id=<%=product.id%>"> Swap </button>
     </div>
       </center>
   </div>

@@ -12,7 +12,34 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/swapOrder.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/build.xml</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/displayData.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/productAdded.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/connectionDB.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/insertData.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/addProduct.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/DisplayOrder.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/order/Order.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/myProducts.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/order/AddOrder.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/bookorders.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/user/UserUtil.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/Feedback.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/DeleteProductAction.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/productAddFailed.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/orderSuccess.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/orderFail.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/index2.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/AddProductAction.java</file>
             <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/Admin.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/conf/MANIFEST.MF</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/Product.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/order/DeleteOrder.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/index.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/login.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/GetProductDetails.java</file>
         </group>
     </open-files>
 </project-private>

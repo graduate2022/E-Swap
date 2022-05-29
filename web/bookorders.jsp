@@ -1,8 +1,9 @@
 <%@page import="product.Product"%>
 <%
 
-    Product product = Product.getProductById(Integer.parseInt(request.getParameter("id")));
-
+    int id = Integer.parseInt(request.getParameter("id"));
+    Product product = Product.getProductById(id);
+    
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,6 +31,16 @@ table{
 }
         </style>
         <title>Insert Page</title>
+        
+        <script>
+            
+            function updateTotal(e){
+                
+                let amount= e.srcElement.value;
+               let total = document.getElementById("total");
+               total.innerHTML=<%=product.price%>*Number(amount);
+            }
+        </script>
     </head>
     <body>
     <center>
@@ -63,29 +74,39 @@ table{
                             </tr>
                         </table>
         </div>
-        <form name="orders table" action="#" method="post">
+        <form name="orders table" action="/Graduate/addOrder" method="post">
             <table border= "3">
                 <tbody>
                     <tr>
                         <td>Customer Name</td>
-                        <td> <input type="text" name="CUSTUMERID" value="" size="40" /> </td>
+                        <td> <input type="text" name="cname" value="" size="40" /> </td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input required type="email" name="CUSTUMERNAME" value="" size="40" /></td>
+                        <td><input required type="email" name="email" value="" size="40" /></td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td><input required minlength="3"  type="text" name="PRODUCTID" value="" size="40" /></td>
+                        <td><input required minlength="3"  type="text" name="address" value="" size="40" /></td>
                     </tr>
                     <tr>
                         <td>Mobile Number</td>
-                        <td><input style="width: 100%;" minlength="10" required type="number" name="PRODUCTNAME" value="" size="40" /></td>
+                        <td>  <input required style="width:-webkit-fill-available;" type="tel" id="phone" name="mobile" placeholder="07(7/8/9)XXXXXXX" pattern="07[7-9]{1}[0-9]{7}" /></td>
                     </tr>
 
                     <tr>
                         <td>Amount</td>
-                        <td><input style="width: 100%;"required min="1" type="number" name="PHONENUMBER" value="" size="40" step="1" /></td>
+                        <td><input style="width: -webkit-fill-available;"required min="1" type="number" name="amount" value="" size="40" step="1" onchange="updateTotal(event)"/></td>
+                    <input style="display:none;" type="text" name="pid" value="<%=id%>" />
+                    <input style="display:none;" type="text" name="price" value="<%=product.price%>" />
+                    <input style="display:none;" type="text" name="productUsername" value="<%=product.userName%>" />
+                    <input style="display:none;" type="text" name="type" value="cash" />
+      
+            </tr>
+                    
+                    <tr>
+                        <td>Total</td>
+                        <td id="total"><%=product.price%></td>
                     </tr>
                 </tbody>
             </table>
