@@ -80,7 +80,7 @@ body{
            <div><a href="DisplayOrder.jsp">  <span>List Of Orders</span> </a></div>       
            <div><a href="addProduct.jsp"> <span>Add Product </span></a></div>            
            <div><a href="myProducts.jsp">  <span>My Products</span> </a></div>  
-           <div><a href="#"> <span>Personal Data </span></a></div>      
+           <div><a href="personalData.jsp"> <span>Personal Data </span></a></div>      
            <div><a href="logoutAction.jsp"> <span>Logout </span></a></div>   
        </div>
         </center>

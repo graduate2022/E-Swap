@@ -73,7 +73,7 @@ body{
         
        <div id="menu">
            <div><a href="/Graduate"> <span>Home Page</span></a></div> 
-           <div><a href="#"> <span>Add Admin</span></a></div> 
+           <div><a href="AddAdmin.jsp"> <span>Add Admin</span></a></div> 
            <div><a href="AddUser.jsp?add=true"> <span>Add User</span></a></div> 
            <div><a href="displayData.jsp"><span> Display Users Page</span> </a></div>
            <div><a href="DisplayOrder.jsp">  <span>List of Orders</span> </a></div>       
@@ -81,7 +81,7 @@ body{
            <div><a href="addProduct.jsp"> <span>Add Product </span></a></div>            
            <div><a href="myProducts.jsp">  <span>My Products</span> </a></div>
            <div><a href="myProducts.jsp?showAllProducts=true">  <span>Display All Products</span> </a></div> 
-           <div><a href="#"> <span>Personal Data </span></a></div>      
+           <div><a href="personalData.jsp"> <span>Personal Data </span></a></div>      
            <div><a href="logoutAction.jsp"> <span>Logout </span></a></div> 
                   <br><br>
        </div>

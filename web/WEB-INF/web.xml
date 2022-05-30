@@ -38,7 +38,6 @@
         <url-pattern>/getProductDetails</url-pattern>  
     </servlet-mapping>
         
-    AddUser
     
     <servlet>  
         <servlet-name>AddUser</servlet-name>  
@@ -50,6 +49,27 @@
         <url-pattern>/addUser</url-pattern>  
     </servlet-mapping>
     
+    
+    <servlet>  
+        <servlet-name>AddAdmin</servlet-name>  
+        <servlet-class>user.AddAdmin</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>AddAdmin</servlet-name>  
+        <url-pattern>/addAdmin</url-pattern>  
+    </servlet-mapping>
+    
+    
+     <servlet>  
+        <servlet-name>UpdateData</servlet-name>  
+        <servlet-class>user.UpdateData</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>UpdateData</servlet-name>  
+        <url-pattern>/updateData</url-pattern>  
+    </servlet-mapping>
     
       <servlet>  
         <servlet-name>CheckUsername</servlet-name>  

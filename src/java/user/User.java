@@ -38,19 +38,34 @@ public class User {
 
     }
 
-    public static void addUser(String fname, String lname, String uname, String pswd, String address, String mobile) throws SQLException {
+    public static void addUser(String fname, String lname, String uname, String pswd, String address, String mobile, boolean isAdmin) throws SQLException {
 
-        PreparedStatement ps = DBUtil.getConnecttion().prepareStatement("INSERT INTO ALAA.USERS (FNAME ,LNAME , USERNAME , PASSWORD, ADDRESS , MOBILE) VALUES(?,?,?,?,?,?)");
+        PreparedStatement ps = DBUtil.getConnecttion().prepareStatement("INSERT INTO ALAA.USERS (FNAME ,LNAME , USERNAME , PASSWORD, ADDRESS , MOBILE, ADMIN) VALUES(?,?,?,?,?,?,?)");
         ps.setString(1, fname);
         ps.setString(2, lname);
         ps.setString(3, uname);
         ps.setString(4, pswd);
         ps.setString(5, address);
         ps.setString(6, mobile);
+        ps.setBoolean(7, isAdmin);
         ps.executeUpdate();
 
     }
 
+
+public static void updateUser(String fname, String lname, String uname, String pswd, String address, String mobile, boolean isAdmin) throws SQLException {
+
+        PreparedStatement ps = DBUtil.getConnecttion().prepareStatement("UPDATE ALAA.USERS SET FNAME=? , LNAME=? , PASSWORD=? , ADDRESS=? , MOBILE=?, ADMIN=? WHERE USERNAME=?");
+        ps.setString(1, fname);
+        ps.setString(2, lname);
+        ps.setString(3, pswd);
+        ps.setString(4, address);
+        ps.setString(5, mobile);
+        ps.setBoolean(6, isAdmin);
+        ps.setString(7, uname);
+
+        ps.executeUpdate();
+    }
 
     public static boolean deleteUser(int id) {
 
@@ -68,11 +83,7 @@ public class User {
 
     }
 public static ArrayList<User> getAllUsers() {
-
-
-
         ArrayList<User> users = new ArrayList<User>();
-
         PreparedStatement ps;
         try {
             ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.USERS");
@@ -106,6 +117,25 @@ public static boolean isUserNameExisted(String username){
 
 
 return found;
+}
+
+public static User getUserByUname(String username){
+        User user = null;
+        PreparedStatement ps;
+        try {
+             ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.USERS WHERE USERNAME=?");
+             ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                user= new User(rs.getString("FNAME"), rs.getString("LNAME"), rs.getString("USERNAME"), rs.getString("PASSWORD"),
+                        rs.getString("ADDRESS"),rs.getString("MOBILE"), rs.getBoolean("ADMIN"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return user;
 }
 
 }

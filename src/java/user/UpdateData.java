@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class AddUser extends HttpServlet {
+public class UpdateData extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -17,11 +17,11 @@ public class AddUser extends HttpServlet {
 
             String fname = request.getParameter("fname");
             String lname = request.getParameter("lname");
-            String uname = request.getParameter("uname");
+            String uname = (String) request.getSession().getAttribute("username");
             String pswd = request.getParameter("pswd");
             String mobile = request.getParameter("mobile");
             String address = request.getParameter("address");
-            User.addUser(fname, lname, uname, pswd, address, mobile, false);
+            User.updateUser(fname, lname, uname, pswd, address, mobile, false);
             success = true;
         } catch (Exception ex) {
             System.out.println(ex);

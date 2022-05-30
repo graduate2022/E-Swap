@@ -8,20 +8,24 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class AddUser extends HttpServlet {
+public class AddAdmin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+
         boolean success = false;
         try {
-
+            Boolean isAdmin = (Boolean) request.getSession().getAttribute("isAdmin");
+            if (isAdmin == null || !isAdmin) {
+                request.getRequestDispatcher("/no-access.jsp").forward(request, response);
+            }
             String fname = request.getParameter("fname");
             String lname = request.getParameter("lname");
             String uname = request.getParameter("uname");
             String pswd = request.getParameter("pswd");
             String mobile = request.getParameter("mobile");
             String address = request.getParameter("address");
-            User.addUser(fname, lname, uname, pswd, address, mobile, false);
+            User.addUser(fname, lname, uname, pswd, address, mobile, true);
             success = true;
         } catch (Exception ex) {
             System.out.println(ex);

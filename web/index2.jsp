@@ -75,7 +75,6 @@ img{
 <section>
 <nav class="w3-bar w3-black">
 <a href="login.jsp" class="w3-button w3-bar-item"> <%=buttonName%> </a>  
-<a href="" class="w3-button w3-bar-item"> Swapping Order </a>
 <a href="Feedback.jsp" class="w3-button w3-bar-item"> Feedback</a> 
 
 </nav>       

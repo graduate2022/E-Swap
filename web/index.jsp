@@ -61,7 +61,7 @@ label0 {color: yellow; font-size:30px;}
  b {color: blueviolet; font-size:25px;}
  
 .div1 button {margin-left: 1060px; size: 30px; margin-top: -150px; }
-.div1 img{ width: 550px; height: 150px; margin-left: 550px;}
+.div1 img{ width: 550px; height: 150px; margin-left: 400px;}
 
 img{
     width: 300px;
@@ -75,7 +75,7 @@ img{
 <section>
 <nav class="w3-bar w3-black">
 <a href="login.jsp" class="w3-button w3-bar-item"> <%=buttonName%> </a>  
-<a href="signin.jsp" class="w3-button w3-bar-item"> Sign in </a>
+<a href="AddUser.jsp" class="w3-button w3-bar-item"> Sign up </a>
 <a href="Feedback.jsp" class="w3-button w3-bar-item"> Feedback</a> 
 </nav>       
 </section>
@@ -101,12 +101,12 @@ img{
       <img src="/Graduate/assets/images/<%=product.imgName%>">
       <div class="details">
        <span><%=product.name%></span>
-    <span>Price: <%=product.price%> JD</span>   
+    <span>Price: <%=product.price%> JD</span>  
       </div>
     
     <div>
         <button><a href="bookorders.jsp?id=<%=product.id%>"> cash </a></button>        
-        <button> <a href="swapOrder.jsp?id=<%=product.id%>"> Swap </button>
+        <button> <a href="swapOrder.jsp?id=<%=product.id%>"> Swap </a></button>
     </div>
       </center>
   </div>

@@ -1,27 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%
 
-    String title = "Sign Up";
-
-    Boolean addUser = Boolean.parseBoolean(request.getParameter("add"));
-
-    if (addUser) {
-        title = "Add User";
-    }
-
+Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
+Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+if(loggedIn==null || !loggedIn || isAdmin == null || !isAdmin){
+   request.getRequestDispatcher("/no-access.jsp").forward(request, response);
+}
 %>
 <!DOCTYPE html>
 <html>
-    
-     <link href="/Graduate/pages/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-<link href="/Graduate/pages/css/style.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
-
-  
-    
     <style>
 
 
@@ -53,9 +40,9 @@
 
 
         body {
-            font-family: Arial, Helvetica, sans-serif !important;
+            font-family: Arial, Helvetica, sans-serif;
             background: linear-gradient(45deg, #cf4e20, #5c408f);
-            color:wheat !important;
+            color:wheat
 
         }
         * {
@@ -70,11 +57,10 @@
             display: inline-block;
             border: none;
             background: #f1f1f1;
-            color: black;
         }
 
         input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus {
-            background-color: #ddd ;
+            background-color: #ddd;
             outline: none;
         }
 
@@ -86,11 +72,10 @@
         /* Set a style for all buttons */
         button,.cancelbtn {
             background-color: #04AA6D;
-            color: white !important;
-            padding: 14px 20px !important;
-            margin: 8px 0 !important;
-            font-family: Arial !important;
-            border: 0;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
             cursor: pointer;
             width: 100%;
             opacity: 0.9;
@@ -113,7 +98,7 @@
         }
 
         /* Add padding to container elements */
-        .f-container {
+        .container {
             padding: 16px;
             margin: 31px;
         }
@@ -135,7 +120,6 @@
         form{
             width:60%;
             margin: 0 auto;
-            margin-top: 170px;
             border: 10px solid;
             border-radius: 53px;
         }
@@ -147,41 +131,11 @@
         }
     </style>
 
- 
     <body>
 
-        
-        <!-- HEADER =============================-->
-<header class="item header margin-top-0">
-<div class="wrapper">
-	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
-			<i class="fa fa-bars"></i>
-			<span class="sr-only">Toggle navigation</span>
-			</button>
-			<a href="index.html" class="navbar-brand brand"> eSwap </a>
-		</div>
-		<div id="navbar-collapse-02" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
-				<li class="propClone"><a href="/Graduate/pages/shop.jsp">Shop</a></li>
-				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>
-				<li class="propClone"><a href="/Graduate/login.jsp">Log In</a></li>
-				<li class="propClone"><a href="#">Contact</a></li>
-			</ul>
-		</div>
-	</div>
-	</nav>
-</div>
-</header>
-        
-
-        
-        <form action="addUser" method="post">
-            <div class="f-container">
-                <center> <h1 style="font-size:57px;"><%=title%></h1> </center>
+        <form action="addAdmin" method="post">
+            <div class="container">
+                <center> <h1 style="font-size:57px;">Add Amin</h1> </center>
                 <p>Please fill in this form to create an account.</p>
                 <hr>
 
@@ -206,7 +160,7 @@
 
                 <div class="clearfix">
                     <input type="reset" class="cancelbtn" value="Cancel"/>
-                    <button id="submit" type="submit" class="signupbtn"><%=title%></button>
+                    <button id="submit" type="submit" class="signupbtn">Add Admin</button>
                 </div>
             </div>
         </form>
