@@ -126,7 +126,7 @@
             }
 
             form{
-                width:70%;
+                width:60%;
                 margin: 0 auto;
                 /*border: 10px solid;*/
                 border-radius: 53px;
