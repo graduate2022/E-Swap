@@ -73,6 +73,7 @@ body{
         
        <div id="menu">
            <div><a href="/Graduate"> <span>Home Page</span></a></div> 
+           <div><a href="#"> <span>Add Admin</span></a></div> 
            <div><a href="AddUser.jsp?add=true"> <span>Add User</span></a></div> 
            <div><a href="displayData.jsp"><span> Display Users Page</span> </a></div>
            <div><a href="DisplayOrder.jsp">  <span>List of Orders</span> </a></div>       

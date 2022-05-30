@@ -1,9 +1,14 @@
 <%
 
     Boolean loggedIn = (Boolean) session.getAttribute("loggedin");
+    Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
 
     if (loggedIn != null && loggedIn) {
-        response.sendRedirect(request.getContextPath() + "/Admin.jsp");
+        if(isAdmin == null && isAdmin){
+            response.sendRedirect(request.getContextPath() + "/Admin.jsp");
+        }else{
+            response.sendRedirect(request.getContextPath() + "/userDashboard.jsp");
+        }
     }
 %>
 
