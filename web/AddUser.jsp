@@ -104,6 +104,7 @@
         /* Add padding to container elements */
         .container {
             padding: 16px;
+            margin: 31px;
         }
 
         /* Clear floats */
@@ -121,7 +122,7 @@
         }
 
         form{
-            width:80%;
+            width:60%;
             margin: 0 auto;
             border: 10px solid;
             border-radius: 53px;
