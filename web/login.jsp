@@ -18,61 +18,180 @@ if(loggedIn!=null && loggedIn){
 
     <link rel="stylesheet"  href="graduate.css">
 
-<style>
- .div1 {
-margin-top: 50px;
-height: 500px;
-width: 500px;
-background-color: wheat;
-border-style: solid;
-border-radius: 30px;
+    <style>
+        
+
+        h2{
+                background: red;
+    width: 50%;
+    margin: 30px auto;
+    border-radius: 100px;
+    color: white;
+    text-align: center;
+        }
+
+ 
+
+
+/* Response */ 
+#uname_response{
+    width:50%;
+    background: red;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 100px;
+    margin: 0 auto;
 }
- form {
-position: inherit;
-margin-top: 70px;
+.not-exists{ 
+  border-radius: 100px;
+  width:100%;
+  background: green; 
+} 
+.exists{ 
+        border-radius: 100px;
+          background: red;
+
+   width:100%;
 }
-</style>
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(45deg, #cf4e20, #5c408f);
+            color:wheat
+
+        }
+        * {
+            box-sizing: border-box
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password], input[type=tel] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus,, input[type=tel]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for all buttons */
+        button,.cancelbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+        
+        .ob button{
+         width: 30%;
+         display: block;
+         text-decoration: none;
+         color:white;
+         margin: 0 auto;
+        }
+        
+        .ob button a{
+             text-decoration: none;
+         color:white;
+        }
+
+        button:hover, .cancelbtn:hover {
+            opacity:1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 16px;
+            margin: 31px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+
+        form{
+            width:60%;
+            margin: 0px auto;
+            margin-top: 40px;
+            border: 10px solid;
+            border-radius: 53px;
+        }
+    </style>
+
+
 </head>
 <body>
-    <center>
+    <!--<center>-->
         
-        <div class="div1"> 
-            <form class="a" action="loginAction.jsp" method = "POST" >
     
-            <table border="3" cellpadding="4" cellspacing="2" style="width:35% " >
-                <thead>
-                    <tr style="height:60px">
-                    <th colspan="2">Login Here</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="height:60px">
-                        <td>Username</td>
-                        <td><input type= "text" required=""  placeholder = "Enter Your User Name"  id="username" name="username"></td>
-                    </tr>
-                    <tr style="height:60px">
-                        <td>Password</td>
-                        <td><input type= "password" required=""  placeholder = "Enter Your Password" id="passwd" name="passwd"></td>
-                    </tr>
-                    <tr style="height:60px">
-                        <td colspan="2" align="center">
-                            <input type="submit" value="Log in" />
-                            &nbsp;&nbsp;
-                            <input type="reset" value="Reset" />
-                           
-                             </td>                        
-                    </tr>                    
-                </tbody>
-            </table>
-            
+    <form action="loginAction.jsp" method="post">
+            <div class="container">
+                <center> <h1 style="font-size:57px;">Log In</h1> </center>
+                <hr>
+
+                <label for="uname"><b>Username</b></label>
+                <input  value="" type="text" placeholder="Enter Your Username" id="username" name="username" required>
+
+                <label for="pswd"><b>Password</b></label>
+                <input type="password" placeholder="Enter Your Password" id="passwd" name="passwd" required>
+              
+                
+                <div class="clearfix">
+                    <input type="reset" class="cancelbtn" value="Clear"/>
+                    <button type="submit" class="signupbtn">Log In</button>
+                </div>
+            </div>
         </form>
-             
+    
+    
+        <div class="ob"> 
+           
        <br><br>
-       <button> <a href="index.jsp" > Back to Home </a></button>
-       &nbsp;&nbsp;
        <button> <a href="insertdata_user.jsp" > Create a new Account </a></button>
+       <br>
+       <button> <a href="index.jsp" > Back to Home </a></button>
+              <br><br>
+
     </div>
-    </center>
+    <!--</center>-->
     
     </body>
 </html>
