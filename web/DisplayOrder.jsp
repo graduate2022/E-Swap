@@ -12,7 +12,13 @@
     if(type==null){
         type="all";
     }
-    ArrayList<Order> orders = Order.getOrdersForCurrentUser((String) session.getAttribute("username"), type);
+    Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    ArrayList<Order> orders;
+    if(isAdmin != null && isAdmin){
+    orders = Order.getAllOrders(type);
+    }else{
+        orders = Order.getOrdersForCurrentUser((String) session.getAttribute("username"), type);
+    }
     
 
 %>

@@ -13,9 +13,9 @@ import java.sql.ResultSet;
  * @author Alaa
  */
 public class UserUtil {
-    
+    public boolean isAdmin = false;
 
-public static boolean validateLogin(String usernsme, String pass){
+public  boolean validateLogin(String usernsme, String pass){
 boolean status=false;  
 try{  
 
@@ -26,6 +26,9 @@ ps.setString(2, pass);
               
 ResultSet rs=ps.executeQuery();  
 status=rs.next();  
+if(status){
+this.isAdmin = rs.getBoolean("Admin");
+}
               
 }catch(Exception e){
 

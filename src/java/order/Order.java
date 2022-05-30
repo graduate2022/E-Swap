@@ -31,7 +31,6 @@ public class Order {
     public Double swapTotal;
     public Integer pSwapId;
 
-
     public int id;
     public int productId;
     public int amount;
@@ -40,17 +39,15 @@ public class Order {
     public double total;
 
     public Order(String customerName, String productUsername, String email, String address, String mobileNumber,
-                 int productId, double price, int amount, int id,
-                 Boolean isSwap, String pSwapName, Double pSwapPrice, Integer pSwapAmount,Double swapTotal, Integer pSwapId) {
-
+            int productId, double price, int amount, int id,
+            Boolean isSwap, String pSwapName, Double pSwapPrice, Integer pSwapAmount, Double swapTotal, Integer pSwapId) {
 
         this.isSwap = isSwap;
         this.pSwapName = pSwapName;
         this.pSwapPrice = pSwapPrice;
         this.pSwapAmount = pSwapAmount;
-        this.swapTotal= swapTotal;
+        this.swapTotal = swapTotal;
         this.pSwapId = pSwapId;
-
 
         this.productId = productId;
         this.productUsername = productUsername;
@@ -59,12 +56,11 @@ public class Order {
         this.email = email;
         this.address = address;
         this.mobileNumber = mobileNumber;
-        this.amount= amount;
-        this.id=id;
-        this.total = price*amount;
+        this.amount = amount;
+        this.id = id;
+        this.total = price * amount;
 
     }
-
 
     public static void addOrder(String customerName, String productUsername, String email, String address, String mobileNumber, int productId, double price, int amount) throws SQLException {
 
@@ -77,19 +73,19 @@ public class Order {
         ps.setDouble(6, price);
         ps.setInt(7, productId);
         ps.setInt(8, amount);
-        ps.setDouble(9, price *amount);
+        ps.setDouble(9, price * amount);
         ps.executeUpdate();
 
     }
 
-  public static void addSwapOrder(String customerName, String productUsername, String email, 
-                                  String address, String mobileNumber, int productId, 
-                                  double price, int amount,
-                                  int pSwapId, String pSwapName, double pSwapPrice, int pSwapAmount, double swapTotal) throws SQLException {
+    public static void addSwapOrder(String customerName, String productUsername, String email,
+            String address, String mobileNumber, int productId,
+            double price, int amount,
+            int pSwapId, String pSwapName, double pSwapPrice, int pSwapAmount, double swapTotal) throws SQLException {
 
         PreparedStatement ps = DBUtil.getConnecttion().prepareStatement("INSERT INTO ALAA.ORDERS (CNAME ,PRODUCTUSERNAME ,"
-                               + " EMAIL , ADDRESS , MOBILE, PRICE , PID, AMOUNT, TOTAL,"
-                               + " SWAPORDER, PRODUCTSWAPID, PRODUCTSWAPNAME, PRODUCTSWAPPRICE, PRODUCTSWAPAMOUNT, SWAPTOTAL) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                + " EMAIL , ADDRESS , MOBILE, PRICE , PID, AMOUNT, TOTAL,"
+                + " SWAPORDER, PRODUCTSWAPID, PRODUCTSWAPNAME, PRODUCTSWAPPRICE, PRODUCTSWAPAMOUNT, SWAPTOTAL) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
         ps.setString(1, customerName);
         ps.setString(2, productUsername);
@@ -99,7 +95,7 @@ public class Order {
         ps.setDouble(6, price);
         ps.setInt(7, productId);
         ps.setInt(8, amount);
-        ps.setDouble(9, price *amount);
+        ps.setDouble(9, price * amount);
 
         ps.setBoolean(10, true);
         ps.setInt(11, pSwapId);
@@ -128,7 +124,6 @@ public class Order {
 
     }
 
-
     public static ArrayList<Order> getOrdersForCurrentUser(String userName, String orderType) {
 
         ArrayList<Order> orders = new ArrayList<Order>();
@@ -142,44 +137,21 @@ public class Order {
                 if (orderType.equalsIgnoreCase("swap")) {
                     isSwap = true;
                 }
-            ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS WHERE PRODUCTUSERNAME=? and SWAPORDER=?");
+                ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS WHERE PRODUCTUSERNAME=? and SWAPORDER=?");
                 ps.setString(1, userName);
                 ps.setBoolean(2, isSwap);
-            }else{
-            ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS WHERE PRODUCTUSERNAME=?");
+            } else {
+                ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS WHERE PRODUCTUSERNAME=?");
                 ps.setString(1, userName);
-}
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                orders.add(new Order(rs.getString("CNAME"), rs.getString("PRODUCTUSERNAME"),rs.getString("EMAIL"), rs.getString("ADDRESS"), 
-                                     rs.getString("MOBILE"), rs.getInt("PID"), rs.getDouble("PRICE"), rs.getInt("AMOUNT"), rs.getInt("ID"),
-                                     rs.getBoolean("SWAPORDER"), rs.getString("PRODUCTSWAPNAME"), rs.getDouble("PRODUCTSWAPPRICE"),
-                                     rs.getInt("PRODUCTSWAPAMOUNT"), rs.getDouble("SWAPTOTAL"), rs.getInt("PRODUCTSWAPID") ));
-
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return orders;
-}
-
-    public static ArrayList<Order> getAllOrders() {
-
-        ArrayList<Order> orders = new ArrayList<Order>();
-
-        PreparedStatement ps;
-        try {
-            ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS");
-
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                orders.add(new Order(rs.getString("CNAME"), rs.getString("PRODUCTUSERNAME"),rs.getString("EMAIL"), rs.getString("ADDRESS"), 
-                                     rs.getString("MOBILE"), rs.getInt("PID"), rs.getDouble("PRICE"), rs.getInt("AMOUNT"), rs.getInt("ID"),
-                                     rs.getBoolean("SWAPORDER"), rs.getString("PRODUCTSWAPNAME"), rs.getDouble("PRODUCTSWAPPRICE"),
-                                     rs.getInt("PRODUCTSWAPAMOUNT"), rs.getDouble("SWAPTOTAL"), rs.getInt("PRODUCTSWAPID") ));
+                orders.add(new Order(rs.getString("CNAME"), rs.getString("PRODUCTUSERNAME"), rs.getString("EMAIL"), rs.getString("ADDRESS"),
+                        rs.getString("MOBILE"), rs.getInt("PID"), rs.getDouble("PRICE"), rs.getInt("AMOUNT"), rs.getInt("ID"),
+                        rs.getBoolean("SWAPORDER"), rs.getString("PRODUCTSWAPNAME"), rs.getDouble("PRODUCTSWAPPRICE"),
+                        rs.getInt("PRODUCTSWAPAMOUNT"), rs.getDouble("SWAPTOTAL"), rs.getInt("PRODUCTSWAPID")));
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
@@ -188,5 +160,38 @@ public class Order {
         return orders;
     }
 
-   
+    public static ArrayList<Order> getAllOrders(String orderType) {
+
+        ArrayList<Order> orders = new ArrayList<Order>();
+
+        PreparedStatement ps;
+        try {
+
+            boolean isSwap = false;
+            if (orderType != null && !orderType.equalsIgnoreCase("all")) {
+
+                if (orderType.equalsIgnoreCase("swap")) {
+                    isSwap = true;
+                }
+                ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS WHERE SWAPORDER=?");
+                ps.setBoolean(1, isSwap);
+            } else {
+                ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.ORDERS");
+            }
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                orders.add(new Order(rs.getString("CNAME"), rs.getString("PRODUCTUSERNAME"), rs.getString("EMAIL"), rs.getString("ADDRESS"),
+                        rs.getString("MOBILE"), rs.getInt("PID"), rs.getDouble("PRICE"), rs.getInt("AMOUNT"), rs.getInt("ID"),
+                        rs.getBoolean("SWAPORDER"), rs.getString("PRODUCTSWAPNAME"), rs.getDouble("PRODUCTSWAPPRICE"),
+                        rs.getInt("PRODUCTSWAPAMOUNT"), rs.getDouble("SWAPTOTAL"), rs.getInt("PRODUCTSWAPID")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return orders;
+    }
+
 }

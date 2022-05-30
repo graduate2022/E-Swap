@@ -31,12 +31,14 @@ if(loggedIn!=null && loggedIn){
 <%
     boolean valid = false;
     boolean empty = false;
-    String username = request.getParameter("username");   
+    String username = request.getParameter("username"); 
+    UserUtil userUtil = new UserUtil();
+
     try{
         String passwd = request.getParameter("passwd");
     
         empty = username == null;
-        valid= UserUtil.validateLogin(username, passwd);
+        valid= userUtil.validateLogin(username, passwd);
    }
    catch (Exception e){
                 out.println("Error" + e);
@@ -46,10 +48,14 @@ if(loggedIn!=null && loggedIn){
 if(valid){
 
                 session.setAttribute("loggedin",true);
+                session.setAttribute("isAdmin",userUtil.isAdmin);
                 
                 session.setAttribute("username",username);
-                
+                if(userUtil.isAdmin){
                 response.sendRedirect(request.getContextPath() + "/Admin.jsp");
+                }else{
+                response.sendRedirect(request.getContextPath() + "/userDashboard.jsp");
+                }
 
 
 }

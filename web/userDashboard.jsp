@@ -5,8 +5,8 @@
 <%
 
 Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
-Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
-if(loggedIn==null || !loggedIn || isAdmin == null || !isAdmin){
+
+if(loggedIn==null || !loggedIn){
    request.getRequestDispatcher("/no-access.jsp").forward(request, response);
 }
 %>
@@ -18,7 +18,9 @@ if(loggedIn==null || !loggedIn || isAdmin == null || !isAdmin){
         <title> Index Page </title>
         <link rel="stylesheet" href="admin1.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-     <style>
+     
+        
+        <style>
 
 body{
     background-color: antiquewhite ;
@@ -62,27 +64,24 @@ body{
       color: white;
     }
 </style>
+
+
     </head>
     <body> 
         <br>
             <center>
                 
-        <h1>Admin Dashboard</h1> 
+        <h1>User Dashboard</h1> 
                
        <br><br>
         
        <div id="menu">
            <div><a href="/Graduate"> <span>Home Page</span></a></div> 
-           <div><a href="AddUser.jsp?add=true"> <span>Add User</span></a></div> 
-           <div><a href="displayData.jsp"><span> Display Users Page</span> </a></div>
-           <div><a href="DisplayOrder.jsp">  <span>List of Orders</span> </a></div>       
-           <div><a href="displayfeeds.jsp"> <span> Display Feeds </span></a></div>
+           <div><a href="DisplayOrder.jsp">  <span>List Of Orders</span> </a></div>       
            <div><a href="addProduct.jsp"> <span>Add Product </span></a></div>            
-           <div><a href="myProducts.jsp">  <span>My Products</span> </a></div>
-           <div><a href="myProducts.jsp?showAllProducts=true">  <span>Display All Products</span> </a></div> 
+           <div><a href="myProducts.jsp">  <span>My Products</span> </a></div>  
            <div><a href="#"> <span>Personal Data </span></a></div>      
-           <div><a href="logoutAction.jsp"> <span>Logout </span></a></div> 
-                  <br><br>
+           <div><a href="logoutAction.jsp"> <span>Logout </span></a></div>   
        </div>
         </center>
                     

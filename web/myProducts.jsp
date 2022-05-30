@@ -7,16 +7,23 @@
 <%@page import="product.Product"%>
 
 <%
-
-    ArrayList<Product> products = Product.getCurrentUserProducts((String) session.getAttribute("username"));
-
+    String title ="My Products";
+    Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    Boolean showAllProducts = Boolean.parseBoolean(request.getParameter("showAllProducts"));
+    ArrayList<Product> products;
+    if(isAdmin != null && isAdmin && showAllProducts){
+    products = Product.getAllProducts();
+    title="All Products";
+    }else{
+    products = Product.getCurrentUserProducts((String) session.getAttribute("username"));
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>My Products</title>
+        <title><%=title%></title>
         <style>
             table{
                 margin:90px auto;
@@ -110,7 +117,7 @@
     </head>
     <body>
     <center>        
-        <h1> My Products Page </h1>
+        <h1> <%=title%> Page </h1>
 
         <table>
             <tr>

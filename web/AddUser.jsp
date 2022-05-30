@@ -1,34 +1,46 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+
+    String title = "Sign Up";
+
+    Boolean addUser = Boolean.parseBoolean(request.getParameter("add"));
+
+    if (addUser) {
+        title = "Add User";
+    }
+
+%>
 <!DOCTYPE html>
 <html>
     <style>
-        
 
 
- 
 
 
-/* Response */ 
-#uname_response{
-    width:50%;
-    background: red;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    border-radius: 100px;
-    margin: 0 auto;
-}
-.not-exists{ 
-  border-radius: 100px;
-  width:100%;
-  background: green; 
-} 
-.exists{ 
-        border-radius: 100px;
-          background: red;
 
-   width:100%;
-}
+
+        /* Response */
+        #uname_response{
+            width:50%;
+            background: red;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 100px;
+            margin: 0 auto;
+        }
+        .not-exists{
+            border-radius: 100px;
+            width:100%;
+            background: green;
+        }
+        .exists{
+            border-radius: 100px;
+            background: red;
+
+            width:100%;
+        }
 
 
         body {
@@ -51,7 +63,7 @@
             background: #f1f1f1;
         }
 
-        input[type=text]:focus, input[type=password]:focus,, input[type=tel]:focus {
+        input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus {
             background-color: #ddd;
             outline: none;
         }
@@ -114,13 +126,19 @@
             border: 10px solid;
             border-radius: 53px;
         }
+        
+        button[disabled]{
+            background: gray;
+    color: darkgray;
+    cursor: unset;
+        }
     </style>
 
     <body>
 
         <form action="addUser" method="post">
             <div class="container">
-                <center> <h1 style="font-size:57px;">Sign Up</h1> </center>
+                <center> <h1 style="font-size:57px;"><%=title%></h1> </center>
                 <p>Please fill in this form to create an account.</p>
                 <hr>
 
@@ -129,14 +147,11 @@
 
                 <label for="lname"><b>Last Name</b></label>
                 <input type="text" placeholder="Enter Last Name" name="lname" required>
-              
+
                 <label for="uname"><b>Username</b></label>
-                <br>
-                <div>
                 <div id="uname_response" class="response" ></div> 
                 <input  value="" type="text" placeholder="Enter Username" id="uname" name="uname" required>
-                </div>
-                <br>
+
                 <label for="pswd"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="pswd" required>
 
@@ -148,42 +163,54 @@
 
                 <div class="clearfix">
                     <input type="reset" class="cancelbtn" value="Cancel"/>
-                    <button type="submit" class="signupbtn">Sign Up</button>
+                    <button id="submit" type="submit" class="signupbtn"><%=title%></button>
                 </div>
             </div>
         </form>
 
-        <script>
-            
-            document.getElementById("uname").addEventListener("change", function(){
-            var uname = document.getElementById("uname").value.trim();
-                        let resDiv = document.getElementById("uname_response");
+        <br><br>
+        <div style="width: 400px;text-align: center;margin: 0 auto;">
+            <a href="index.jsp" style="display: block;width: 100%;text-decoration: none;color: white;" > 
+                <button style="width:100%;">  Back to Home </button> 
+            </a>
+        </div> 
+        <br><br>
 
-                    if (uname != ''){
+
+        <script>
+
+            document.getElementById("uname").addEventListener("change", function () {
+                document.getElementById("submit").disabled = true;
+                var uname = document.getElementById("uname").value.trim();
+                let resDiv = document.getElementById("uname_response");
+
+                if (uname != '') {
                     resDiv.style.display = "block";
                     var xhr = new XMLHttpRequest();
                     xhr.onreadystatechange = function () {
-                    // In local files, status is 0 upon success in Mozilla Firefox
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                    var status = xhr.status;
+                        // In local files, status is 0 upon success in Mozilla Firefox
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            var status = xhr.status;
                             if (status === 0 || (status >= 200 && status < 400)) {
-                    // The request has been completed successfully
-                    let found = JSON.parse(xhr.responseText).found;
-                    if (!found){
-                    resDiv.innerHTML = "<p class='not-exists'>Available.</p>";
-                    } else{
-                    resDiv.innerHTML = "<p class='exists'> Username Already in use.</p>";
-                    }
-                    } else {
-                    resDiv.innerHTML = "<p class='sexists'>Username Already in use.</p>";
-                    }
-                    }
+                                // The request has been completed successfully
+                                let found = JSON.parse(xhr.responseText).found;
+                                if (!found) {
+                                    document.getElementById("submit").disabled = false;
+
+                                    resDiv.innerHTML = "<p class='not-exists'>Available.</p>";
+                                } else {
+                                    resDiv.innerHTML = "<p class='exists'> Username Already in use.</p>";
+                                }
+                            } else {
+                                resDiv.innerHTML = "<p class='sexists'>Username Already in use.</p>";
+                            }
+                        }
                     };
                     xhr.open("POST", "/Graduate/checkUsername?uname=" + uname);
                     xhr.send();
-            } else{
-                resDiv.style.display = "none";
-            }
+                } else {
+                    resDiv.style.display = "none";
+                }
             });
 
         </script>

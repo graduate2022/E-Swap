@@ -24,8 +24,9 @@ public class User {
     public String pswd;
     public String address;
     public String mobile;
+    public boolean isAdmin;
 
-    public User(String fname, String lname, String uname, String pswd, String address, String mobile) {
+    public User(String fname, String lname, String uname, String pswd, String address, String mobile, boolean  isAdmin) {
 
         this.fname = fname;
         this.lname = lname;
@@ -33,6 +34,7 @@ public class User {
         this.pswd = pswd;
         this.mobile = mobile;
         this.address = address;
+        this.isAdmin = isAdmin;
 
     }
 
@@ -79,7 +81,7 @@ public static ArrayList<User> getAllUsers() {
 
             while (rs.next()) {
                 users.add(new User(rs.getString("FNAME"), rs.getString("LNAME"), rs.getString("USERNAME"), rs.getString("PASSWORD"),
-                        rs.getString("ADDRESS"),rs.getString("MOBILE")));
+                        rs.getString("ADDRESS"),rs.getString("MOBILE"), rs.getBoolean("ADMIN")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
