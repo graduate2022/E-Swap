@@ -5,7 +5,7 @@
 Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
 
 if(loggedIn!=null && loggedIn){
-   buttonName = "Admin page";
+   buttonName = "Dashboard";
 }
 
     ArrayList<Product> products = Product.getAllProducts();
@@ -37,14 +37,16 @@ if(loggedIn!=null && loggedIn){
 			<i class="fa fa-bars"></i>
 			<span class="sr-only">Toggle navigation</span>
 			</button>
-			<a href="index.html" class="navbar-brand brand"> eSwap </a>
+			<a href="index.jsp" class="navbar-brand brand"> eSwap </a>
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="propClone"><a href="/Graduate">Home</a></li>
 				<li class="propClone"><a href="/Graduate/pages/shop.jsp">Shop</a></li>
+                                <%if(loggedIn==null || !loggedIn){%>
 				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>
-				<li class="propClone"><a href="/Graduate/login.jsp">Log In</a></li>
+                                <%}%>
+				<li class="propClone"><a href="/Graduate/login.jsp"><%=buttonName%></a></li>
 				<li class="propClone"><a href="#">Contact</a></li>
 			</ul>
 		</div>

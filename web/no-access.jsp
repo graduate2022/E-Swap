@@ -1,17 +1,58 @@
 <%-- 
-    Document   : no-access
-    Created on : May 7, 2022, 8:24:37 PM
+    Document   : orderSuccess
+    Created on : May 27, 2022, 11:33:59 PM
     Author     : Alaa
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@include file="navbar.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>No Access</title>
+        <title>Success</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif !important;
+                background: white!important;
+                color:black !important;
+
+            }
+            .s-msg{
+                margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+            }
+            
+            .s-btn{
+                
+                 top: 80%;
+ 
+            }
+            
+            .fa-times-circle{
+                    font-size: 112px;
+    text-align: center;
+    position: relative;
+    left: 37%;
+    color: red;
+            }
+            </style>
     </head>
     <body>
+        <div class="s-msg">
+            <div class="fa fa-times-circle"></div>
         <h1>You are not logged in!</h1>
+        </div>  
+<div class="s-msg s-btn item content">
+	<div class="container text-center">
+            
+		<a style="width: 500px" href="/Graduate/login.jsp" class="homebrowseitems">
+                    Log In Now 
+		</a>
+	</div>
+</div>
     </body>
 </html>

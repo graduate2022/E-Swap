@@ -1,8 +1,16 @@
-<%-- 
-    Document   : navbar
-    Created on : May 31, 2022, 2:32:23 AM
-    Author     : Alaa
---%>
+<%@page import="product.Product"%>
+<%@page import="java.util.ArrayList"%>
+<%
+    String buttonName = "Login";
+Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
+
+if(loggedIn!=null && loggedIn){
+   buttonName = "Dashboard";
+}
+
+    ArrayList<Product> products = Product.getAllProducts();
+
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -56,7 +64,7 @@
             }
 
             /* Full-width input fields */
-            input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number] {
+            input[type=text], input[type=password], input[type=tel], input[type=email], input[type=number],input[type=file] {
                 width: 100%;
                 padding: 15px;
                 margin: 5px 0 22px 0;
@@ -66,7 +74,7 @@
                 color: black;
             }
 
-            input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus, input[type=email]:focus, input[type=number]:focus {
+            input[type=text]:focus, input[type=password]:focus, input[type=tel]:focus, input[type=email]:focus, input[type=number]:focus, input[type=file]:focus {
                 background-color: #ddd;
                 outline: none;
             }
@@ -164,14 +172,16 @@
 			<i class="fa fa-bars"></i>
 			<span class="sr-only">Toggle navigation</span>
 			</button>
-			<a href="index.html" class="navbar-brand brand"> eSwap </a>
+			<a href="index..jsp" class="navbar-brand brand"> eSwap </a>
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
+				<li class="propClone"><a href="index..jsp">Home</a></li>
 				<li class="propClone"><a href="/Graduate/pages/shop.jsp">Shop</a></li>
+                                <%if(loggedIn==null || !loggedIn){%>
 				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>
-				<li class="propClone"><a href="/Graduate/login.jsp">Log In</a></li>
+                                <%}%>
+				<li class="propClone"><a href="/Graduate/login.jsp"><%=buttonName%></a></li>
 				<li class="propClone"><a href="#">Contact</a></li>
 			</ul>
 		</div>

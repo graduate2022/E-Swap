@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 
-    Boolean loggedIn = (Boolean) session.getAttribute("loggedin");
+    Boolean loggedIn2 = (Boolean) session.getAttribute("loggedin");
 
-    if (loggedIn == null || !loggedIn) {
+    if (loggedIn2 == null || !loggedIn2) {
         request.getRequestDispatcher("/no-access.jsp").forward(request, response);
     }
 %>
@@ -106,7 +106,7 @@
             }
 
             /* Add padding to container elements */
-            .container {
+            .f-container {
                 padding: 16px;
                 margin: 33px;
             }
@@ -139,6 +139,7 @@
             }
         </style>   
 
+        <%@include file="navbar.jsp" %>
 
     </head>
     <body>
@@ -148,7 +149,7 @@
 
 
         <form name="orders table" action="addProduct" method="post" enctype="multipart/form-data">
-            <div class="container">
+            <div class="f-container">
                 <center> <h1 style="font-size:57px;">Add Product</h1> </center>
                 <hr>
 

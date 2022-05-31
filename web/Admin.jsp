@@ -4,9 +4,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 
-Boolean loggedIn= (Boolean) session.getAttribute("loggedin");
-Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
-if(loggedIn==null || !loggedIn || isAdmin == null || !isAdmin){
+Boolean loggedIn2= (Boolean) session.getAttribute("loggedin");
+Boolean isAdmin2 = (Boolean) session.getAttribute("isAdmin");
+if(loggedIn2==null || !loggedIn2 || isAdmin2 == null || !isAdmin2){
    request.getRequestDispatcher("/no-access.jsp").forward(request, response);
 }
 %>
@@ -17,12 +17,15 @@ if(loggedIn==null || !loggedIn || isAdmin == null || !isAdmin){
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Index Page </title>
         <link rel="stylesheet" href="admin1.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-     <style>
+        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+             <%@include file="navbar.jsp" %>
+
+        <style>
 
 body{
     background-color: antiquewhite ;
-    
+    color: black!important;
+    font-family: Arial!important;
     }
     
     h1{

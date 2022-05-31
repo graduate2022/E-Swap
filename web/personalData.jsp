@@ -6,9 +6,9 @@
 <%@page import="user.User"%>
 <%
 
-    Boolean loggedIn = (Boolean) session.getAttribute("loggedin");
+    Boolean loggedIn2 = (Boolean) session.getAttribute("loggedin");
 
-    if (loggedIn == null || !loggedIn) {
+    if (loggedIn2 == null || !loggedIn2) {
         request.getRequestDispatcher("/no-access.jsp").forward(request, response);
     }
     
@@ -108,7 +108,7 @@
         }
 
         /* Add padding to container elements */
-        .container {
+        .f-container {
             padding: 16px;
             margin: 31px;
         }
@@ -151,6 +151,7 @@
             padding: 3px;
         }
     </style>
+        <%@include file="navbar.jsp" %>
 
     <script>
         
@@ -198,7 +199,7 @@
     <body>
 
         <form action="updateData" method="post">
-            <div class="container">
+            <div class="f-container">
                 <center> <h1 style="font-size:57px;">Personal Data</h1> </center>
                 <hr>
                 <label for="fname"><b>First Name</b></label>

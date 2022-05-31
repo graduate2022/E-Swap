@@ -12,9 +12,9 @@
     if(type==null){
         type="all";
     }
-    Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    Boolean isAdmin2 = (Boolean) session.getAttribute("isAdmin");
     ArrayList<Order> orders;
-    if(isAdmin != null && isAdmin){
+    if(isAdmin2 != null && isAdmin2){
     orders = Order.getAllOrders(type);
     }else{
         orders = Order.getOrdersForCurrentUser((String) session.getAttribute("username"), type);
@@ -28,6 +28,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>My Products</title>
+
         <style>
             a{
                 width: 400px;

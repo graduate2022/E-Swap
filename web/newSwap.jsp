@@ -4,12 +4,6 @@
     int id = Integer.parseInt(request.getParameter("id"));
     Product product = Product.getProductById(id);
 
-   Boolean loggedIn2 = (Boolean) session.getAttribute("loggedin");
-
-    if (loggedIn2 == null || !loggedIn2) {
-        request.getRequestDispatcher("/no-access.jsp").forward(request, response);
-    }
-
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
