@@ -60,7 +60,7 @@ if(loggedIn!=null && loggedIn){
 						 New Shopping Experience
 					</div>
 					<div style="color:darkgoldenrod !important;" class="maintext-image yel" data-scrollreveal="enter bottom over 1.7s after 0.3s">
-						 Start Swapping Products
+                                            Start <span style="color:darkgoldenrod;">Swapping</span> Products
 					</div>
 				</div>
 			</div>
