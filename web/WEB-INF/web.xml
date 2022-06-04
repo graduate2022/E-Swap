@@ -38,6 +38,17 @@
         <url-pattern>/getProductDetails</url-pattern>  
     </servlet-mapping>
         
+       
+
+  <servlet>  
+        <servlet-name>SearchProductByName</servlet-name>  
+        <servlet-class>product.SearchProductByName</servlet-class> 
+    </servlet> 
+    
+     <servlet-mapping>  
+        <servlet-name>SearchProductByName</servlet-name>  
+        <url-pattern>/searchProductByName</url-pattern>  
+    </servlet-mapping>
     
     <servlet>  
         <servlet-name>AddUser</servlet-name>  

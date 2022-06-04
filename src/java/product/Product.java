@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
 
 /**
  *
@@ -148,7 +149,41 @@ public class Product {
         return product;
     }
 
-  public static Product getProductByIdForCurrentUser(int id, String userName) {
+    public static JSONObject searchProductByName(String name) {
+
+        ArrayList<Product> products = new ArrayList<Product>();
+        ArrayList<JSONObject> jp = new ArrayList<JSONObject>();
+
+        PreparedStatement ps;
+        try {
+            ps = DBUtil.getConnecttion().prepareStatement("SELECT * FROM ALAA.PRODUCTS WHERE NAME LIKE '%" + name + "%' ");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                JSONObject j = new JSONObject();
+                j.put("name", rs.getString("name"));
+                j.put("imgname", rs.getString("imgname"));
+                j.put("id", rs.getString("id"));
+                j.put("price", rs.getString("price"));
+                jp.add(j);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JSONObject jSONObject = null;
+
+        if (jp.size() > 0) {
+
+            jSONObject = new JSONObject();
+
+            jSONObject.put("res", jp.toString());
+        }
+
+        return jSONObject;
+    }
+
+    public static Product getProductByIdForCurrentUser(int id, String userName) {
 
         Product product = null;
         PreparedStatement ps;
@@ -166,8 +201,8 @@ public class Product {
         return product;
     }
 
-public static String getUsernameForProduct(int pid){
-Product product = getProductById(pid);
-return product.userName;
-}
+    public static String getUsernameForProduct(int pid) {
+        Product product = getProductById(pid);
+        return product.userName;
+    }
 }
