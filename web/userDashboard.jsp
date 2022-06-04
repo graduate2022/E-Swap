@@ -73,7 +73,7 @@ body{
                 
         <h1>User Dashboard</h1> 
                
-       <br><br>
+       <br>
         
        <div id="menu">
            <div><a href="/Graduate"> <span>Home Page</span></a></div> 

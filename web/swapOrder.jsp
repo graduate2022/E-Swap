@@ -3,12 +3,7 @@
 
     int id = Integer.parseInt(request.getParameter("id"));
     Product product = Product.getProductById(id);
-
-   Boolean loggedIn2 = (Boolean) session.getAttribute("loggedin");
-
-    if (loggedIn2 == null || !loggedIn2) {
-        request.getRequestDispatcher("/no-access.jsp").forward(request, response);
-    }
+    ArrayList<Product> prods = Product.getCurrentUserProducts((String) session.getAttribute("username"));
 
 %>
 
@@ -30,23 +25,26 @@
             }
 
             .spd{
-                background: dimgray;width: 100%;display: inline-block;text-align: center;
+                background: dimgray;
+                width: 100%;
+                display: inline-block;
+                text-align: center;
             }
             [disabled]{
-                 background: darkgray!important;
+                background: darkgray!important;
             }
             .swap{
                 display: none !important;
             }
             td{
-      border: 0;
+                border: 0;
 
             }
             table{
                 text-align: center;
             }
-           img{
-                    border-radius: 220px;
+            img{
+                border-radius: 220px;
 
             }
         </style>
@@ -158,7 +156,7 @@
         <br><!-- comment -->
         <br><!-- comment -->
 
-        
+
 
 
         <form ame="orders table" action="/Graduate/addOrder" method="post" style="border:0 !important; margin-top:40px !important">
@@ -167,43 +165,61 @@
                 <hr> 
 
                 <br><br>
-                
+
                 <div class="details">
 
-            <table>
-                <tr>
-                    <td>
-                        <img height="400" width="400" src="/Graduate/assets/images/<%=product.imgName%>"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br>
-                        <span>Product Name : <%=product.name%></span> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Price : <%=product.price%> JD</span> 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Payment Method : Swap</span>
-                        <h4 style="word-break:  break-word; width: 582px; ">(any difference in the price will be paid in cash on delivery time)</h4> 
-                    </td>
-                </tr>
-            </table>
-        </div>
-                    
-                    <br><br>
-                
-                
+                    <table>
+                        <tr>
+                            <td>
+                                <img height="400" width="400" src="/Graduate/assets/images/<%=product.imgName%>"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br>
+                                <span>Product Name : <%=product.name%></span> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Price : <%=product.price%> JD</span> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Payment Method : Swap</span>
+                                <h4 style="word-break:  break-word; width: 582px; ">(any difference in the price will be paid in cash on delivery time)</h4> 
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br><br>
+
+
 
                 <h1 for="pSwapId"><b>Please Enter the <b><span>product id</span></b> that you want to swap with</b></h1>
-                <input id="spid" min="1" name="pSwapId" required id="swap-pid" type="number" width=" -webkit-fill-available">
-                <button onclick="getProduct(event)">Check Product</button>
 
+                pp                   <%=prods.size()%>
+
+                <select style="    width: 100%;
+                        padding: 15px;
+                        margin: 5px 0 22px 0;
+                        display: inline-block;
+                        border: none;
+                        background: #f1f1f1;
+                        color: black;"
+                        required onchange="getProduct(event)" name="pSwapId" id="spid">
+                        <option disabled selected value> -- select an option -- </option>
+
+
+                    <%
+                        for (Product p : prods) {
+
+                    %>
+                    <option value="<%=p.id%>"><%=p.id%>: <%=p.name%></option>
+                    <%}%>
+                </select>
 
                 <div style="text-align: left">                                     
                     <h1>
@@ -223,8 +239,8 @@
 
                 <div style="text-align: left">                                     
                     <h1>
-                    Amount: 
-                    <span id="p-swap-amount" class="spd">-</span>
+                        Amount: 
+                        <span id="p-swap-amount" class="spd">-</span>
                     </h1>
                     <input name="pSwapAmoun" class="swap"  id="p-swap-amount-input" type="text"/> 
                 </div> 
@@ -232,42 +248,42 @@
 
                 <label for="cname"><b>Customer Name</b></label>
                 <input disabled type="text" placeholder="Enter Your Name" name="cname" value="" size="40" required />
-                
+
                 <label for="email"><b>Email</b></label>
                 <input disabled type="email" placeholder="Enter Your Email" name="email" value="" size="40" required />
 
                 <label for="address"><b>Address</b></label>
-                <input disabled type="text" minlength="3" placeholder="Enter Your Name" name="address" value="" size="40" required />
+                <input disabled type="text" minlength="3" placeholder="Enter Address " name="address" value="" size="40" required />
 
                 <label for="mobile"><b>Mobile Number</b></label>
-               <input disabled required style="width:-webkit-fill-available;" type="tel" id="phone" name="mobile" placeholder="07(7/8/9)XXXXXXX" pattern="07[7-9]{1}[0-9]{7}" />
- 
-               <label for="amount"><b>Amount</b></label>
-              <input disabled id ="amount" disabled style="width: -webkit-fill-available;"required min="1" type="number" name="amount" value="" size="40" step="1" onchange="updateTotal(this.value)"/>
-               
-              <input style="display:none;" type="text" name="pid" value="<%=id%>" />
+                <input disabled required style="width:-webkit-fill-available;" type="tel" id="phone" name="mobile" placeholder="07(7/8/9)XXXXXXX" pattern="07[7-9]{1}[0-9]{7}" />
+
+                <label for="amount"><b>Amount</b></label>
+                <input disabled id ="amount" disabled style="width: -webkit-fill-available;"required min="1" type="number" name="amount" value="" size="40" step="1" onchange="updateTotal(this.value)"/>
+
+                <input style="display:none;" type="text" name="pid" value="<%=id%>" />
                 <input style="display:none;" type="text" name="price" value="<%=product.price%>" />
                 <input style="display:none;" type="text" name="productUsername" value="<%=product.userName%>" />
                 <input style="display:none;" type="text" name="type" value="cash" />
 
-                
-           
-                
+
+
+
 
                 <div style="font-size: 50px;color: lightcyan;">
                     <span><b>Total:</b></span>
                     <span id="total"><b><%=product.price%></b></span>
                 </div>
 
-                
+
                 <div style="font-size: 50px;color: lightcyan;">
                     <span><b> Total After Swap:</b></span>
-                      <span id="total-swap"></span>
-                        <input class="swap" name="swapTotal" id="total-swap-input" type="text"/>
+                    <span id="total-swap"></span>
+                    <input class="swap" name="swapTotal" id="total-swap-input" type="text"/>
                 </div> 
 
-                
-                
+
+
                 <div class="clearfix">
                     <input type="reset" class="cancelbtn" value="Clear"/>
                     <button disabled id ="ord" type="submit" class="signupbtn">Order</button>
@@ -277,7 +293,7 @@
 
     </center>
 
-   
+
 
 
 </body>

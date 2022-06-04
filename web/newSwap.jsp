@@ -3,6 +3,7 @@
 
     int id = Integer.parseInt(request.getParameter("id"));
     Product product = Product.getProductById(id);
+    ArrayList<Product> products = Product.getCurrentUserProducts((String)session.getAttribute("userName"));
 
 %>
 
@@ -195,8 +196,19 @@
                 
 
                 <h1 for="pSwapId"><b>Please Enter the <b><span>product id</span></b> that you want to swap with</b></h1>
-                <input id="spid" min="1" name="pSwapId" required id="swap-pid" type="number" width=" -webkit-fill-available">
-                <button onclick="getProduct(event)">Check Product</button>
+                
+                <select required onchange="getProduct(event)" name="pSwapId" id="spid"  width=" -webkit-fill-available">
+             
+                    <%
+                        for(Product p:products){
+                    
+                    %>
+                    <option value="<%=p.id%>"><%=p.id%>: <%=p.name%></option>
+                    <%}%>
+                </select>
+                
+                <!--<input id="spid" min="1" name="pSwapId" required id="swap-pid" type="number" width=" -webkit-fill-available">-->
+                <!--<button onclick="getProduct(event)">Check Product</button>-->
 
 
                 <div style="text-align: left">                                     
@@ -231,7 +243,7 @@
                 <input disabled type="email" placeholder="Enter Your Email" name="email" value="" size="40" required />
 
                 <label for="address"><b>Address</b></label>
-                <input disabled type="text" minlength="3" placeholder="Enter Your Name" name="address" value="" size="40" required />
+                <input disabled type="text" minlength="3" placeholder="Enter Address " name="address" value="" size="40" required />
 
                 <label for="mobile"><b>Mobile Number</b></label>
                <input disabled required style="width:-webkit-fill-available;" type="tel" id="phone" name="mobile" placeholder="07(7/8/9)XXXXXXX" pattern="07[7-9]{1}[0-9]{7}" />

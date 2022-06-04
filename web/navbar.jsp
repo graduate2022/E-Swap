@@ -176,7 +176,7 @@ if(loggedIn!=null && loggedIn){
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index..jsp">Home</a></li>
+				<li class="propClone"><a href="index.jsp">Home</a></li>
 				<li class="propClone"><a href="/Graduate/pages/shop.jsp">Shop</a></li>
                                 <%if(loggedIn==null || !loggedIn){%>
 				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>

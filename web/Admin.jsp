@@ -29,7 +29,7 @@ body{
     }
     
     h1{
-        color: green;
+        color: antiquewhite;
     }
      
     #menu > div{
@@ -69,11 +69,9 @@ body{
     <body> 
         <br>
             <center>
-                
-        <h1>Admin Dashboard</h1> 
-               
-       <br><br>
-        
+                <br><br>
+        <h1> Admin Dashboard </h1> 
+                      
        <div id="menu">
            <div><a href="/Graduate"> <span>Home Page</span></a></div> 
            <div><a href="AddAdmin.jsp"> <span>Add Admin</span></a></div> 
@@ -84,8 +82,8 @@ body{
            <div><a href="addProduct.jsp"> <span>Add Product </span></a></div>            
            <div><a href="myProducts.jsp">  <span>My Products</span> </a></div>
            <div><a href="myProducts.jsp?showAllProducts=true">  <span>Display All Products</span> </a></div> 
-           <div><a href="personalData.jsp"> <span>Personal Data </span></a></div>      
-           <div><a href="logoutAction.jsp"> <span>Logout </span></a></div> 
+           <div><a href="personalData.jsp"> <span> Personal Data </span></a></div>      
+           <div><a href="logoutAction.jsp"> <span> Logout </span></a></div> 
                   <br><br>
        </div>
         </center>
