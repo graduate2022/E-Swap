@@ -161,11 +161,11 @@
 			<i class="fa fa-bars"></i>
 			<span class="sr-only">Toggle navigation</span>
 			</button>
-			<a href="index.html" class="navbar-brand brand"> eSwap </a>
+			<a href="index.jsp" class="navbar-brand brand"> eSwap </a>
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
+				<li class="propClone"><a href="index.jsp">Home</a></li>
 				<li class="propClone"><a href="/Graduate/pages/shop.jsp">Shop</a></li>
 				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>
 				<li class="propClone"><a href="/Graduate/login.jsp">Log In</a></li>
