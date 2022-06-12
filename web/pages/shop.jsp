@@ -86,8 +86,7 @@ if(loggedIn!=null && loggedIn){
 				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>
                                 <%}%>
 				<li class="propClone"><a href="/Graduate/login.jsp"><%=buttonName%></a></li>
-				<li class="propClone"><a href="#">Contact</a></li>
-			</ul>
+				</ul>
 		</div>
 	</div>
 	</nav>
@@ -184,8 +183,8 @@ if(loggedIn!=null && loggedIn){
 				 Connect with eSwap
 			</p>
 			<ul class="social-iconsfooter">
-				<li><a href="#"><i class="fa fa-phone"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://api.whatsapp.com/send?phone=962782477422&app=facebook&entry_point=page_cta"><i class="fa fa-phone"></i></a></li>
+				<li><a href="https://www.facebook.com/ESwap-104416452302224/"><i class="fa fa-facebook"></i></a></li>
 				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>

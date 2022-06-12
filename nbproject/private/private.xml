@@ -12,10 +12,14 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/Admin.jsp</file>
-            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/userDashboard.jsp</file>
-            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/index.jsp</file>
-            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/AddAdmin.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/DB/DBUtil.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/web/pages/shop.jsp</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/SearchProductByName.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/Product.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/product/JSONObject.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/user/UpdateData.java</file>
+            <file>file:/C:/Users/96278/Documents/NetBeansProjects/Graduate/src/java/user/CheckUsername.java</file>
         </group>
     </open-files>
 </project-private>

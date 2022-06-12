@@ -100,7 +100,7 @@
                 <input type="email" placeholder="Enter Your Email" name="email" value="" size="40" required />
 
                 <label for="address"><b>Address</b></label>
-                <input type="text" minlength="3" placeholder="Enter Your Name" name="address" value="" size="40" required />
+                <input type="text" minlength="3" placeholder="Enter Address " name="address" value="" size="40" required />
 
                 <label for="mobile"><b>Mobile Number</b></label>
                <input required style="width:-webkit-fill-available;" type="tel" id="phone" name="mobile" placeholder="07(7/8/9)XXXXXXX" pattern="07[7-9]{1}[0-9]{7}" />

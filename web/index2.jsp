@@ -75,7 +75,6 @@ img{
 <section>
 <nav class="w3-bar w3-black">
 <a href="login.jsp" class="w3-button w3-bar-item"> <%=buttonName%> </a>  
-<a href="Feedback.jsp" class="w3-button w3-bar-item"> Feedback</a> 
 
 </nav>       
 
@@ -85,12 +84,7 @@ img{
 <marquee BGCOLOR="Red" SCROLLAMOUNT="130" SCROLLDELAY="600" >
 <label0> Free Delivery </label0>
 </marquee>
-    
-<marquee BGCOLOR="yellow" SCROLLAMOUNT="110" SCROLLDELAY="600" >
-<b> Welcome in our Shop</b>&emsp;&emsp;&emsp;
-<b>Date and Time is : <%=  new java.util.Date()%> </b> </marquee> 
-
-<div class="container">
+    <div class="container">
 <div class="row">
      <%              
                 for (Product product : products) {

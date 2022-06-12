@@ -5,7 +5,6 @@
 --%>
 <%@page import="order.Order"%>
 <%@page import="java.util.ArrayList"%>
-
 <%
 
     String type = request.getParameter("types");
@@ -30,12 +29,10 @@
         <title>My Products</title>
 
         <style>
-            a{
-                width: 400px;
-    text-decoration: none;
-    color: inherit;
-            }
-            
+             body {
+                background: burlywood;
+            }           
+                        
             button{
                 width:90px;
                 height: 35px;
@@ -43,19 +40,19 @@
                 font-weight: bold;
             }
             table{
-                margin-top: 50px;
-                background: beige;
+                margin-top: 20px;
+                background: #ce8483;
                 text-align: center;
                 border: none;
             }
             tr,td{
                 background: beige;
-                border: 1px solid antiquewhite;
+                border: 2px solid antiquewhite;
                 font-size: 14px;
                 font-weight: bold;
             }
             th{
-                background: burlywood;
+                background: #204d60;
                 border: 1px solid antiquewhite;
                 font-size: 15px;
             }
@@ -72,7 +69,7 @@
             
             tr:hover button {
                 background: lightcoral;
-                color: white;
+                color: black;
                 border: none;
             }
             
@@ -82,14 +79,7 @@
            
             
         </style>
-    <style>
-
-    body{
-    background-color: antiquewhite ;
-    
-    }
-       </style>
-        <script>
+           <script>
            
             function deleteProduct(id) {
                 var xhr = new XMLHttpRequest();
@@ -122,7 +112,6 @@
     <body>
     <center>        
         <h1> List Of <%=type%> Orders</h1>
-
         <div style="margin-top:100px">
             <form method="post" action="DisplayOrder.jsp">
             <span><b>Order Type</b></span>
@@ -134,7 +123,7 @@
             <input type="submit" value="Show"/>
             </form>
         </div>
-        <table style="width:100%" border="0" cellspacing="0" cellpadding="0">
+        <table style="width:95%" border="2" cellspacing="0" cellpadding="0">
             <tr class="head">
                 <th>Order ID</th>
                 <th>Product ID</th>
@@ -207,7 +196,7 @@
 
         </table>
 
-    <button style="width:170px;margin-top: 20px" ><a href="index.jsp"> Back To Home </a></button>
+            <button style="width:170px;margin-top: 20px" ><a href="Admin.jsp"> Back to Home </a></button>
     
     <script>
         

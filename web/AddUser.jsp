@@ -169,7 +169,6 @@
 				<li class="propClone"><a href="/Graduate/pages/shop.jsp">Shop</a></li>
 				<li class="propClone"><a href="/Graduate/AddUser.jsp">Sign Up</a></li>
 				<li class="propClone"><a href="/Graduate/login.jsp">Log In</a></li>
-				<li class="propClone"><a href="#">Contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -213,8 +212,11 @@
 
         <br><br>
         <div style="width: 400px;text-align: center;margin: 0 auto;">
+            <a href="login.jsp" style="display: block;width: 100%;text-decoration: none;color: white;" > 
+                <button style="width:100%;">  Back login </button> 
             <a href="index.jsp" style="display: block;width: 100%;text-decoration: none;color: white;" > 
                 <button style="width:100%;">  Back to Home </button> 
+
             </a>
         </div> 
         <br><br>
